@@ -3,7 +3,7 @@ package br.edu.ifpb.model;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
-//Classe nova
+
 @XmlRootElement
 public class Dealer {
 	private String name, fone, cnpj;
