@@ -69,6 +69,12 @@ public class DealerResource {
 		
 		dealersMap.put(1, dealer);
 	}
+ 
+ 	@GET
+	@Produces( "application/json")
+	public List<Dealer> getDealer() {
+		return new ArrayList<Dealer>(dealersMap.values());
+	}
 
  	@Path("{id}")
 	@GET
