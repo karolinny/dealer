@@ -21,6 +21,9 @@ import br.edu.ifpb.model.National;
 public class DealerResource {
 	
 	static private Map<Integer, Dealer> dealersMap;
+	static private List<Book> booksDealer;
+	static private List<Book> booksClient;
+	static private List<Client> clients;
 	
  static{
 		dealersMap = new HashMap<Integer,Dealer>();
@@ -34,12 +37,12 @@ public class DealerResource {
 							+ "infraestrutura de dados espaciais");
 		booknational1.setISBN("87777-889");
 		
-		List<Book> booksDealer = new ArrayList<Book>();
+		booksDealer = new ArrayList<Book>();
 		booksDealer.add(booknational1);
 				
 		Client client = new Client();
 		
-		List<Book> booksClient = new ArrayList<Book>();
+		booksClient = new ArrayList<Book>();
 		booksClient.add(booksDealer.get(0));
 		
 		client.setId(1L);
@@ -47,7 +50,7 @@ public class DealerResource {
 		client.setBirthday(Calendar.getInstance());
 		client.setBooks(booksClient);
 		
-		List<Client> clients = new ArrayList<Client>();
+		clients = new ArrayList<Client>();
 		clients.add(client);
 		
 		Address address = new Address();
@@ -75,7 +78,7 @@ public class DealerResource {
 	public List<Dealer> getDealer() {
 		return new ArrayList<Dealer>(dealersMap.values());
 	}
-
+ 	
  	@Path("{id}")
 	@GET
 	@Produces("text/xml")
