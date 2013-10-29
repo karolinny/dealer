@@ -1,5 +1,8 @@
 package br.edu.ifpb.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Book {
 	private Long id;
 	private String title;

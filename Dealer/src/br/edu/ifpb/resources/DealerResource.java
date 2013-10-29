@@ -11,6 +11,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
+import sun.misc.Cleaner;
 import br.edu.ifpb.model.Address;
 import br.edu.ifpb.model.Book;
 import br.edu.ifpb.model.Client;
@@ -77,6 +78,13 @@ public class DealerResource {
 	@Produces( "application/json")
 	public List<Dealer> getDealer() {
 		return new ArrayList<Dealer>(dealersMap.values());
+	}
+ 	
+ 	@Path("client")
+ 	@GET
+	@Produces("application/json")
+	public List<Client> getPessoa() {
+		return clients;
 	}
  	
  	@Path("{id}")

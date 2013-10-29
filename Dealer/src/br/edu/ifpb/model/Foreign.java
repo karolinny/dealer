@@ -1,5 +1,8 @@
 package br.edu.ifpb.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Foreign extends Book{
 	private String Idiome;
 	

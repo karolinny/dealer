@@ -2,6 +2,9 @@ package br.edu.ifpb.model;
 
 import java.util.Calendar;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class People {
 	private String name;
 	private Address address;

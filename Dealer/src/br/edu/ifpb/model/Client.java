@@ -2,6 +2,9 @@ package br.edu.ifpb.model;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Client extends People {
 	
 	private Long id;

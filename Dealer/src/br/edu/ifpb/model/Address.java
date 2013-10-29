@@ -1,5 +1,8 @@
 package br.edu.ifpb.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Address {
 	private String city, state, CEP, street, number;
 	
