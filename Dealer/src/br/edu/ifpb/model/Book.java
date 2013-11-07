@@ -1,15 +1,17 @@
 package br.edu.ifpb.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
+@XmlType(propOrder={"id","title", "description", "author", "ISBN"})
 public class Book {
 	private Long id;
 	private String title;
 	private String description;
 	private String author;
 	private String ISBN;
-	private float price;
+	
 	
 	public Book(){}
 
@@ -53,13 +55,7 @@ public class Book {
 		ISBN = iSBN;
 	}
 
-	public float getPrice() {
-		return price;
-	}
 
-	public void setPrice(float price) {
-		this.price = price;
-	}
 
 	
 }

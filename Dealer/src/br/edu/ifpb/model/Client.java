@@ -3,8 +3,10 @@ package br.edu.ifpb.model;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
+@XmlType(propOrder={"id","books"})
 public class Client extends People {
 	
 	private Long id;

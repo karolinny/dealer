@@ -1,8 +1,10 @@
 package br.edu.ifpb.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
+@XmlType(propOrder={ "street","number","city","state","CEP"})
 public class Address {
 	private String city, state, CEP, street, number;
 	

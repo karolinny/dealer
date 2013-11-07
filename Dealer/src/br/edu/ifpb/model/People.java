@@ -3,12 +3,14 @@ package br.edu.ifpb.model;
 import java.util.Calendar;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
+@XmlType(propOrder={"name","address", "birthday"})
 public class People {
 	private String name;
 	private Address address;
-	private Calendar birthday;
+	private String birthday;
 	
 	public People(){}
 
@@ -20,11 +22,11 @@ public class People {
 		this.address = address;
 	}
 
-	public Calendar getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Calendar birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 

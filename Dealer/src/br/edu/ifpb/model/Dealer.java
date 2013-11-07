@@ -3,14 +3,26 @@ package br.edu.ifpb.model;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
+@XmlType(propOrder={"id","name", "fone", "cnpj", "address","books", "clients"})
 public class Dealer {
+	private int id;
 	private String name, fone, cnpj;
 	private Address address;
 	private List<Book> books;
 	private List<Client> clients;
 	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
