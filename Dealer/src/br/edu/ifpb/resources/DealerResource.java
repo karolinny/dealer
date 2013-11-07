@@ -117,33 +117,47 @@ public class DealerResource {
 	}
 	
 	//Adiciona uma novo Cliente
-		@Path("/addClient")
-		@POST
-		@Consumes("text/xml")
-		@Produces("text/xml")
-		public String adicionaClient(Client client) {
-			clients.add(client);
-			return client.getName() + "adicionado.";
-		}
+	@Path("/addClient")
+	@POST
+	@Consumes("text/xml")
+	@Produces("text/xml")
+	public String adicionaClient(Client client) {
+		clients.add(client);
+		return client.getName() + "adicionado.";
+	}
 	
 		
-		//Atualiza Cliente
-		@Path("updateClient/{id}")
-		@PUT @Consumes("text/xml")
-		@Produces("text/plain") 
-		public String updateClient(Client client, @PathParam("id") int id) { 
-			Client modify = clients.get(id); 
-			modify.setName(client.getName());
-			modify.setBirthday(client.getBirthday());
-			return client.getName() + " atualizado."; 
-		}
+	//Atualiza Cliente
+	@Path("updateClient/{id}")
+	@PUT @Consumes("text/xml")
+	@Produces("text/plain") 
+	public String updateClient(Client client, @PathParam("id") int id) { 
+		Client modify = clients.get(id); 
+		modify.setName(client.getName());
+		modify.setBirthday(client.getBirthday());
+		return client.getName() + " atualizado."; 
+	}
 		
-		//Deleta um cliente
-		@Path("/deleteClient/{id}")
-		@DELETE
-		@Produces("text/xml") 
-		public String removeClient(@PathParam("id") int id) { 
-			clients.remove(clients.get(id -1)); return "Cliente removido.";
-		}
+	//Deleta um cliente
+	@Path("/deleteClient/{id}")
+	@DELETE
+	@Produces("text/xml") 
+	public String removeClient(@PathParam("id") int id) { 
+		clients.remove(clients.get(id -1)); return "Cliente removido.";
+	}
+	
+	@Path("/booksClients/get")
+	@GET
+	@Produces("text/xml")
+	public List<Book> getBooksClients() {
+		return booksClient;
+	}
+	
+	@Path("/booksDealer/get")
+	@GET
+	@Produces("text/xml")
+	public List<Book> getBooksDealer() {
+		return booksDealer;
+	}
 	
 }
