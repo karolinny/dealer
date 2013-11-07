@@ -49,7 +49,7 @@ public class DealerResource {
 		booksClient = new ArrayList<Book>();
 		booksClient.add(booksDealer.get(0));
 
-		client.setId(1L);
+		client.setId();
 		client.setName("Karolinny");
 		client.setBirthday("05/05/1994");
 		client.setBooks(booksClient);
@@ -86,17 +86,8 @@ public class DealerResource {
 		return new ArrayList<Dealer>(dealersMap.values());
 	}
 
-	//Adiciona uma nova Distribuidora	
-	@Path("/addDealer")
-	@POST
-	@Consumes("text/xml")
-	@Produces("text/xml")
-	public String adicionaDealer(Dealer dealer) {
-		dealer.setId(dealersMap.size()+ 1);
-		dealersMap.put(dealer.getId(), dealer);
-		return dealer.getName() + " adicionado.";
-	}
 	
+
 	//Atualiza Distribuidora
 	@Path("updateDealer/{id}")
 	@PUT @Consumes("text/xml")
@@ -124,6 +115,35 @@ public class DealerResource {
 	public List<Client> getClient() {
 		return clients;
 	}
-
-
+	
+	//Adiciona uma novo Cliente
+		@Path("/addClient")
+		@POST
+		@Consumes("text/xml")
+		@Produces("text/xml")
+		public String adicionaClient(Client client) {
+			clients.add(client);
+			return client.getName() + "adicionado.";
+		}
+	
+		
+		//Atualiza Cliente
+		@Path("updateClient/{id}")
+		@PUT @Consumes("text/xml")
+		@Produces("text/plain") 
+		public String updateClient(Client client, @PathParam("id") int id) { 
+			Client modify = clients.get(id); 
+			modify.setName(client.getName());
+			modify.setBirthday(client.getBirthday());
+			return client.getName() + " atualizado."; 
+		}
+		
+		//Deleta um cliente
+		@Path("/deleteClient/{id}")
+		@DELETE
+		@Produces("text/xml") 
+		public String removeClient(@PathParam("id") int id) { 
+			clients.remove(clients.get(id -1)); return "Cliente removido.";
+		}
+	
 }

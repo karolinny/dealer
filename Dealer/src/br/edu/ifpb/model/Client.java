@@ -9,17 +9,17 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder={"id","books"})
 public class Client extends People {
 	
-	private Long id;
+	private static int id = 0;
 	private List<Book> books;
 
 	
 	public Client(){}
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setId() {
+		this.id++;
 	}
 	public List<Book> getBooks() {
 		return books;
