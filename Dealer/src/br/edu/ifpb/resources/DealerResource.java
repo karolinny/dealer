@@ -160,4 +160,14 @@ public class DealerResource {
 		return booksDealer;
 	}
 	
+	//Adiciona uma novo Book
+		@Path("/addBookDealer")
+		@POST
+		@Consumes("text/xml")
+		@Produces("text/xml")
+		public String adicionaBook(Book book) {
+			booksDealer.add(book);
+			return book.getTitle() + "adicionado.";
+		}
+	
 }
